@@ -10,7 +10,7 @@ The main page would look like this:
 
 ![Main page preview](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/home-page.jpg?raw=true)
 
-The post page would look like this:
+The post page would look like this:1
 
 ![Post page preview](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/post-example.jpg?raw=true)
 

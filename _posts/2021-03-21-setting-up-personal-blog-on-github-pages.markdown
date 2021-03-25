@@ -36,7 +36,7 @@ How did I compelete it :
 - used the template https://github.com/artemsheludko/flexible-jekyll
 - updated the _config.yaml file with my own settings, uploaded my own profile pic to assets/img folder
 - removed unnecessary posts in _post folder
-- removed disqus integration from file _layouts/post.html , line "{% include disqus.html %}" 
+- removed disqus integration from file _layouts/post.html 
 Maybe for someone it works, I do find it too bulky...) 
 - added integration with https://utteranc.es/ 
 This one, adds to each post a github issue & allows people to comment via their gihub profile. Wich i find amazing simple & all stored in github :) 

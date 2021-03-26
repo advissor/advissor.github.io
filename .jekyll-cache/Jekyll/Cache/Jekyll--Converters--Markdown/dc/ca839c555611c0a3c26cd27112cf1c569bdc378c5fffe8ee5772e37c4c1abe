@@ -1,0 +1,42 @@
+I"y<p>As many of people who attempted and continued to develop, I’ve tried starting up my blog around 10+ times :) 
+I tried many different options :</p>
+<ul>
+  <li>Wordpress</li>
+  <li>some weird in place CMS</li>
+  <li>adobe muse/ adobe webflow</li>
+  <li>wix</li>
+  <li>Angular 1 static sites</li>
+  <li>Angular 2 + Wordpress API</li>
+  <li>Static html pages</li>
+  <li>Contenful CMS with some frameworks and etc.</li>
+</ul>
+
+<p>I wasn’t really happy with those. From one side, tons of control, but do we actually need all of the overhead?
+Damn no!</p>
+
+<p>So, this is my final attempt which gonna live forever on Github Pages and doesnt really require nothing but tiny time investment to maintain it &amp; set it up.</p>
+
+<p>My requirment :</p>
+<ul>
+  <li>no hustle with servers or hosting</li>
+  <li>super simple setup</li>
+  <li>none or very little maintenance</li>
+  <li>allows comments</li>
+  <li>allows code formatting</li>
+  <li>something used by many, and it proven by time</li>
+</ul>
+
+<p>Result : blog on github pages</p>
+
+<p>How did I compelete it :</p>
+
+<ul>
+  <li>used the template https://github.com/artemsheludko/flexible-jekyll</li>
+  <li>updated the _config.yaml file with my own settings, uploaded my own profile pic to assets/img folder</li>
+  <li>removed unnecessary posts in _post folder</li>
+  <li>removed disqus integration from file _layouts/post.html 
+Maybe for someone it works, I do find it too bulky…)</li>
+  <li>added integration with https://utteranc.es/ 
+This one, adds to each post a github issue &amp; allows people to comment via their gihub profile. Wich i find amazing simple &amp; all stored in github :)</li>
+</ul>
+:ET

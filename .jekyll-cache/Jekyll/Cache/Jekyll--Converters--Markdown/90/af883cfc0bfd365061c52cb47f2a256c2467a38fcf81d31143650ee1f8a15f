@@ -1,0 +1,46 @@
+I"�
+<p><a href="https://mikefarah.gitbook.io/yq/">YQ</a></p>
+
+<p>Where this might come handy? GitOps !</p>
+
+<p>In cases like updating values.yaml files when using Helm charts.
+Updating docker image versions in CI/CD pipelines , to trigger changes &amp; sync in K8S tools.
+Editing any other file yaml, which carry versions and etc.</p>
+
+<p>Lets take sample YAML file , called “test.yaml” with following content :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># An employee record</span>
+<span class="ss">name: </span><span class="no">Martin</span> <span class="no">D</span><span class="err">'</span><span class="n">vloper</span>
+<span class="ss">job: </span><span class="no">Developer</span>
+<span class="ss">skill: </span><span class="no">Elite</span>
+<span class="ss">employed: </span><span class="no">True</span>
+<span class="ss">foods:
+  </span><span class="o">-</span> <span class="no">Apple</span>
+  <span class="o">-</span> <span class="no">Orange</span>
+  <span class="o">-</span> <span class="no">Strawberry</span>
+  <span class="o">-</span> <span class="no">Mango</span></code></pre></figure>
+
+<p>Lets select “martin” node</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">yq</span> <span class="n">read</span> <span class="nb">test</span><span class="p">.</span><span class="nf">yaml</span> <span class="nb">name</span> </code></pre></figure>
+
+<p>Output</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Martin</span> <span class="no">D</span><span class="err">'</span><span class="n">vloper</span></code></pre></figure>
+
+<p>Now lets try to edit “name” field within YAML file with YQ  :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">yq</span> <span class="n">w</span> <span class="o">-</span><span class="n">i</span> <span class="nb">test</span><span class="p">.</span><span class="nf">yaml</span> <span class="nb">name</span> <span class="s2">"Chris OK"</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># An employee record</span>
+<span class="ss">name: </span><span class="no">Chris</span> <span class="no">OK</span>
+<span class="ss">job: </span><span class="no">Developer</span>
+<span class="ss">skill: </span><span class="no">Elite</span>
+<span class="ss">employed: </span><span class="no">True</span>
+<span class="ss">foods:
+  </span><span class="o">-</span> <span class="no">Apple</span>
+  <span class="o">-</span> <span class="no">Orange</span>
+  <span class="o">-</span> <span class="no">Strawberry</span>
+  <span class="o">-</span> <span class="no">Mango</span>
+  </code></pre></figure>
+:ET

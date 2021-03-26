@@ -1,0 +1,28 @@
+I"�<p><a href="https://jekyllrb.com/docs/installation/macos/">Install Ruby</a></p>
+
+<p>In case, after reloading terminal gem command requires “sudo”, you can try to reinstall Ruby in following maner :
+https://github.com/rbenv/ruby-build/issues/1360</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">RUBY_CONFIGURE_OPTS</span><span class="o">=</span><span class="s2">"--with-openssl-dir=$(brew --prefix openssl)"</span> <span class="n">rbenv</span> <span class="n">install</span>  <span class="mf">2.6</span><span class="o">.</span><span class="mi">5</span></code></pre></figure>
+
+<p>For ruby 3, you might see “webrick” error. You can apply folloring <a href="https://github.com/jekyll/jekyll/issues/8523">workaround</a></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"webrick"</span></code></pre></figure>
+
+<p><a href="https://jekyllrb.com/docs/installation/">Install Jekyll &amp; Bundler</a></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">gem</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">install</span> <span class="n">bundler</span> <span class="n">jekyll</span></code></pre></figure>
+
+<p>Install packages :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bundle</span> <span class="n">install</span></code></pre></figure>
+
+<p>Serve content locally :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bundle</span> <span class="nb">exec</span> <span class="n">jekyll</span> <span class="n">serve</span></code></pre></figure>
+
+<p>Visit local version in browser :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">4000</span><span class="o">/</span></code></pre></figure>
+
+:ET

@@ -19,7 +19,7 @@ minikube start
 
 2) Clone this article GIT repo : 
 
-[Clone (https://github.com/advissor/terraform-minikube-helm-istio)
+[Clone](https://github.com/advissor/terraform-minikube-helm-istio)
 
 cd namespaces
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Terraform kubernetes provider on minikube. Creating namespaces and running nginx deployment"
+title: "Deploying Nginx Helm chart on minikube using terraform"
 date: 2021-05-04 13:32:20 +0300
-description: Terraform kubernetes provider on minikube. Creating namespaces and running nginx deployment
+description: Deploying Nginx Helm chart on minikube using terraform
 img:  # Add image post (optional)
 ---
 
@@ -10,14 +10,16 @@ img:  # Add image post (optional)
 
 Prerequisites : 
 
-- terraform 
 - minikube
+- terraform 
+- helm 3
 
 ### What we will complete by the end of this exercise : 
  
-- Create **2 namespaces**
-- Deploy **Nginx deployment**
-- Create a **service** with type **NodePort** to access it 
+- Install **Nginx Helm Chart**
+- Set **values of Helm chart via Terraform** to use **NodePort** service and specific **Port**
+- Use **default** namespace
+- Access Nginx Deployment via minikube ip & NodePort port
 
 **Nodeport** exposes the service on every node on a fixed port. 
 In our case, will expose it on our minikube ip and fixed , dedicated port
@@ -30,12 +32,12 @@ Which makes it easy to access in combination with minikube ip
 minikube start
 {% endhighlight %}
 
-2) Clone this article GIT repo : 
+2) Clone this article [GIT REPO](https://github.com/advissor/terraform-minikube-helm-istio) 
 
-[Clone](https://github.com/advissor/terraform-minikube-helm-istio)
+Switch into correct folder : 
 
 {% highlight javascript %}
-cd applications
+cd helm-provider
 {% endhighlight %}
 
 Edit main.tf file, and edit appropiately to point to your kubeconfig file location :
@@ -70,27 +72,32 @@ terraform apply
 
 Enter : Yes
 
-6) Verify Namespaces get created 
+6) Verify helm chart is installed
 
 {% highlight ruby %}
-kubectl get ns
+helm ls
 {% endhighlight %}
 
 
 Should show : 
 {% highlight ruby %}
-NAME                     STATUS   AGE
-applications-namespace   Active   6s
-monitoring-namespace     Active   6s
-default                  Active   37d
-kube-node-lease          Active   37d
-kube-public              Active   37d
-kube-system              Active   37d
+➜  advissor.github.io git:(main) ✗ helm ls
+NAME                    	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART                         	APP VERSION
+nginx-ingress-controller	default  	1       	2021-05-04 23:56:51.256473 +0500 +05	deployed	nginx-ingress-controller-7.6.6	0.46.0     
 {% endhighlight %}
 
 6) Verify Nginx pods are created
+
 {% highlight ruby %}
-kubectl get po -n applications
+kubectl get pods
+{% endhighlight %}
+
+Expected output :
+{% highlight ruby %}
+
+NAME                                                       READY   STATUS    RESTARTS   AGE
+nginx-ingress-controller-64658d6659-drmzd                  1/1     Running   0          114s
+nginx-ingress-controller-default-backend-8cc5f7b5d-94658   1/1     Running   0          114s
 {% endhighlight %}
 
 Expected output : 
@@ -104,18 +111,20 @@ scalable-nginx-example-5fbb9989bf-mbhvd   1/1     Running   0          82s
 7) Access Nginx deployment via NodePort IP
 
 {% highlight ruby %}
-kubectl get svc -n applications
+kubectl get svc
 {% endhighlight %}
 
 {% highlight ruby %}
 NAME            TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
-nginx-example   NodePort   10.100.32.98   <none>        80:30201/TCP   2m35s
+kubernetes                                 ClusterIP   10.96.0.1        <none>        443/TCP                      55d
+nginx-ingress-controller                   NodePort    10.103.151.203   <none>        80:30201/TCP,443:32767/TCP   3m27s
+nginx-ingress-controller-default-backend   ClusterIP   10.99.218.58     <none>        80/TCP                       3m27s
 {% endhighlight %}
 
 Use the port , from the output and "minikube ip"
 
 {% highlight ruby %}
-➜  applications git:(main) minikube ip
+➜ minikube ip
 192.168.64.2
 
 {% endhighlight %}

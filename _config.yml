@@ -28,7 +28,8 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jemoji
-
+# https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/installation.md
+  - jekyll-seo-tag
 paginate: 8
 paginate_path: "/page/:num"
 

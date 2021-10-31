@@ -1,9 +1,9 @@
-title: Hello, world! I'm Vlad Didenko
+title: Blog on DevOps, Kubernetes, CI/CD from Vladyslav Didenko
 description: > # this means to ignore newlines until "baseurl:"
   This is my almost secret space to share what I've learned. Things that matte
 permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://nodevops.nl" # the base hostname & protocol for your site, e.g. http://example.com
 site-twitter: #if your site has a twitter account, enter it here
 
 # Author Settings
@@ -30,6 +30,8 @@ plugins:
   - jemoji
 # https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/installation.md
   - jekyll-seo-tag
+# https://github.com/jekyll/jekyll-sitemap
+  - jekyll-sitemap
 paginate: 8
 paginate_path: "/page/:num"
 

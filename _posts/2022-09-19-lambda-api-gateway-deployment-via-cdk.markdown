@@ -8,7 +8,6 @@ img:  # Add image post (optional)
 
 ## Prerequisites   
 
-
 - Linux environment( tested on MacOS M1 )
 - Python 3.8
 - CDK installed [Instructions](../Installing-AWS-CDK-on-Mac/)

@@ -7,10 +7,27 @@ img:  # Add image post (optional)
 ---
 [Install Ruby](https://jekyllrb.com/docs/installation/macos/)
 
-In case, after reloading terminal gem command requires "sudo", you can try to reinstall Ruby in following maner :
-https://github.com/rbenv/ruby-build/issues/1360
+Here are steps I've used on Mac M1 to install rbenv , initiliase it & install Ruby version 2.7.1
 {% highlight ruby %}
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)" rbenv install  2.6.5
+brew install rbenv
+rbenv init
+eval "$(rbenv init -)"
+RUBY_CFLAGS="-w" rbenv install 2.7.1
+rbenv global 2.7.1
+ruby -v
+{% endhighlight %}
+
+Verify Ruby environment is ok via "rbenv-doctor" : 
+{% highlight ruby %}
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash
+{% endhighlight %}
+
+You would see something like :
+{% highlight ruby %}
+Checking `rbenv install' support: /opt/homebrew/bin/rbenv-install (ruby-build 20220910.1)
+Counting installed Ruby versions: 1 versions
+Checking RubyGems settings: OK
+Auditing installed plugins: OK
 {% endhighlight %}
 
 For ruby 3, you might see "webrick" error. You can apply folloring [workaround](https://github.com/jekyll/jekyll/issues/8523)

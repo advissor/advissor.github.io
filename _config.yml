@@ -11,10 +11,10 @@ author: Vlad Didenko # add your name
 author-img: vlad-d-profile.jpeg # add your photo
 about-author: I am DevOps focusing on AWS, Serverless, IAC, CI/CD , Docker, Kubernetes and . Always hungry to keep learning. # add description
 social-twitter: NodevopsN # add your Twitter handle
-social-facebook: didenko.vladyslav # add your Facebook handle
-social-github: advissor # add your Github handle
-social-linkedin: vladyslavdidenko/?locale=en_US # add your Linkedin handle
-social-email: the.advissor@gmail.com # add your Email address
+social-facebook: NodevopsN # add your Facebook handle
+social-github: NodevopsN # add your Github handle
+social-linkedin: NodevopsN # add your Linkedin handle
+
 
 # Disqus
 discus-identifier: mr-brown # add your discus identifier

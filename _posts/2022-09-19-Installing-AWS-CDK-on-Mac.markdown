@@ -8,10 +8,6 @@ img:  # Add image post (optional)
 
 ## Prerequisites   
 
-This can be achieved with an OS tool called tfenv
-
-Currently tfenv supports the following OSes
-
 - Mac OS X (M1)
 - Linux ( 64bit and Arm )
 - Python 3 / NPM 
